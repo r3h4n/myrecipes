@@ -55,3 +55,52 @@ $navbar-default-text: #fff;
     color: #c2c2d6;
     text-decoration: none;
   }
+  
+  footer {
+    margin-top: 45px;
+    padding-top: 5px;
+    border-top: 1px;
+    color: #777;
+  }
+  
+  footer a {
+    color :#555;
+  }
+  
+    footer a:hover {
+    color :#222;
+  }
+  
+    footer small {
+    float: left;
+  }
+  
+    footer ul {
+      float: right;
+    }
+    
+    footer ul li {
+      float: left;
+      margin-left: 15px;
+    }
+    
+  .description {
+    margin-top: 0;
+  }
+  
+  .well a{
+    color: #073B15;
+    
+  }
+
+  .colormatch a{
+    color: #073B15;
+    
+  }
+  
+  .recipe-actions {
+    padding-top: 5px;
+    a {
+      color : #fff;
+    }
+  }

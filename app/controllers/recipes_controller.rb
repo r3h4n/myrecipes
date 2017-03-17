@@ -4,5 +4,50 @@ class RecipesController < ApplicationController
     @recipes = Recipe.all
   end
   
+  def show
+  @recipe = Recipe.find(params[:id])
+  end
   
+  def new
+    @recipe = Recipe.new
+  end
+  
+  def create
+    @recipe = Recipe.new(recipe_params)
+    @recipe.chef = Chef.first
+    if @recipe.save
+      flash[:notice] = "Recipe created successfully!"
+      redirect_to recipe_path(@recipe)
+    else
+      render 'new'
+  end
+end
+  
+  def edit
+    @recipe = Recipe.find(params[:id])
+  end
+  
+  def update
+    @recipe = Recipe.find(params[:id])
+    if @recipe.save
+      flash[:success] = "Recipe was updated successfully"
+      redirect_to recipe_path(@recipe)
+    else
+      render 'edit'
+  end
+end
+
+  def destroy
+    @recipe = Recipe.find(params[:id])
+    @recipe.destroy
+   flash[:success] = "Recipe deleted successfully"
+    redirect_to recipes_path
+  end
+
+  
+  private
+  
+  def recipe_params
+    params.require(:recipe).permit(:name, :description)
+  end
 end
