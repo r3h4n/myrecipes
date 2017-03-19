@@ -17,10 +17,11 @@ class ChefsController < ApplicationController
   def show
     
   end
-end
-
+  
 private
 
 def chef_params
   params.require(:chef).permit(:name, :email, :password, :password_confirmation)
+end
+
 end
