@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-  before_action :set_recipe, only: [:show, :edit, :update] # run this line of code for show/edit/update before anything in the method below
+  before_action :set_recipe, only: [:show, :edit, :update, :destroy] # run this line of code for show/edit/update before anything in the method below
   before_action :require_user, except: [:index, :show]
   before_action :require_same_user, only: [:edit, :update, :destroy]
   
@@ -38,8 +38,7 @@ end
 end
 
   def destroy
-    set_recipe
-    @recipe.destroy
+    set_recipe.destroy
    flash[:success] = "Recipe deleted successfully"
     redirect_to recipes_path
   end
